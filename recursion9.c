@@ -1,34 +1,23 @@
 #include <stdio.h>
-#include <stdlib.h>
 
-int minimum(int* ptr,int* min, int size){
-	if(ptr == ptr + size){
-        exit(-1);
-        }
-	if(*ptr < *min){
-
+char uppercase(const char* str){
+	if(*str == '\0'){
+	return 0;
 	}
-        
-        ptr++;
 
-        return minimum(ptr, min, size);
+        if(*str >= 'A' && *str <= 'Z'){
+        return *str;
+        }
+
+	return uppercase(++str);
 }
 
 int main() {
-        int n = 0;
-        printf("Enter n: ");
-        scanf("%d", &n);
-
-        int arr[n];
-        int* ptr = arr;
-	int* min = arr;
-        printf("Enter the elements of the array");
-
-        for (int i = 0; i < n; ++i){
-        scanf("%d", &arr[i]);
-        }
-
-        printf("%d", minimum(ptr,min, n));
-
+        const char str[50];
+        printf("Write something: ");
+        scanf("%s", str);
+        
+        
+        printf("%c",uppercase(str));
 }
-   
+
